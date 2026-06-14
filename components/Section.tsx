@@ -20,7 +20,7 @@ export function Section({ id, eyebrow, title, text, children, className = "" }: 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-18% 0px -12% 0px" }}
       transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
-      className={`section-shell relative mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8 ${className}`}
+      className={`section-shell relative mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24 ${className}`}
     >
       {(eyebrow || title || text) && (
         <motion.div

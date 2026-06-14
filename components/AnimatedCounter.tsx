@@ -15,7 +15,11 @@ export function AnimatedCounter({ value, prefix = "", suffix = "", label }: Anim
   const inView = useInView(ref, { once: true, margin: "-120px" });
   const [isCounting, setIsCounting] = useState(false);
   const count = useMotionValue(0);
-  const rounded = useTransform(count, (latest) => `${prefix}${Math.round(latest)}${suffix}`);
+  const rounded = useTransform(count, (latest) => {
+    const n = Math.round(latest);
+    const formatted = n >= 1000 ? n.toLocaleString("en-IN") : String(n);
+    return `${prefix}${formatted}${suffix}`;
+  });
 
   useEffect(() => {
     if (!inView) return;

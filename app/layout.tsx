@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 import { WhatsappButton } from "@/components/WhatsappButton";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { ScrollEffects } from "@/components/ScrollEffects";
@@ -9,26 +10,30 @@ import { InteractiveEffects } from "@/components/InteractiveEffects";
 export const metadata: Metadata = {
   metadataBase: new URL("https://marketingwallah.com"),
   title: {
-    default: "MarketingWallah | India's Leading Performance Marketing & Growth Partner",
-    template: "%s | MarketingWallah"
+    default: "Marketing Wallah | India's #1 Marketing Agency for Education Brands",
+    template: "%s | Marketing Wallah"
   },
   description:
-    "MarketingWallah is a full-service 360 degree growth marketing agency for Education, Study Abroad, Real Estate, CRM Automation, SEO, and Lead Generation.",
+    "Marketing Wallah is a 360° marketing agency built exclusively for the education industry. We help colleges, universities, study abroad consultants, MBBS abroad consultants, coaching institutes, and EdTech companies generate student leads that actually enroll.",
   keywords: [
-    "MarketingWallah",
-    "performance marketing agency India",
-    "education marketing agency",
+    "Marketing Wallah",
+    "education marketing agency India",
+    "university marketing agency",
+    "student lead generation",
     "study abroad lead generation",
-    "real estate digital marketing",
-    "Meta Ads agency",
-    "Google Ads agency",
-    "CRM automation"
+    "MBBS abroad lead generation",
+    "EdTech marketing agency",
+    "coaching institute marketing",
+    "Meta Ads for education",
+    "Google Ads for universities",
+    "education funnel building",
+    "admission marketing agency"
   ],
   openGraph: {
-    title: "MarketingWallah",
-    description: "India's Leading Performance Marketing & Growth Partner",
+    title: "Marketing Wallah",
+    description: "India's #1 Marketing Agency for Education Brands. We generate student leads that actually enroll.",
     url: "https://marketingwallah.com",
-    siteName: "MarketingWallah",
+    siteName: "Marketing Wallah",
     locale: "en_IN",
     type: "website"
   },
@@ -53,6 +58,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <InteractiveEffects />
         <Navbar />
         <main className="relative z-10">{children}</main>
+        <Footer />
         <WhatsappButton />
       </body>
     </html>
