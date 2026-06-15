@@ -14,7 +14,14 @@ export function ThreeGlobe() {
     const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
     camera.position.z = 4.65;
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    // WebGL may be unavailable (hardware acceleration off, GPU sandbox failures,
+    // some Chrome configs). The globe is decorative — never let it crash the page.
+    let renderer: THREE.WebGLRenderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, failIfMajorPerformanceCaveat: false });
+    } catch {
+      return;
+    }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(mount.clientWidth, mount.clientHeight);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
